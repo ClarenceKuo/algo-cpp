@@ -28,3 +28,7 @@ I'm challenging myself to write one data-structure/algorithm per day to get fami
 2. BFS
 3. Dijkastra 
 4. A*
+
+## Requirements
+1. This project uses GoogleTest, a c++ testing framework. Preinstall cmake is required.
+UPDATE: Just found that it may take a while to get familiar with the testing framework. 
