@@ -28,9 +28,21 @@ T Node<T>::getValue()
 }
 
 template <typename T>
+void Node<T>::setValue(T val)
+{
+    value = val;
+}
+
+template <typename T>
 Node<T> Node<T>::getNext()
 {
     return next;
+}
+
+template <typename T>
+void Node<T>::setNext(Node<T> node)
+{
+     next = node;
 }
 
 template< typename T>
@@ -63,9 +75,9 @@ template<typename T>
 int Linkedlist<T>::length(){
     Node<T> *node = &head;
     int cnt = 0;
-    while(node.next != nullptr){
+    while(node.getNext() != nullptr){
         cnt++;
-        node = node.next;
+        node = node.getNext();
     }
     return cnt;
 }
@@ -75,8 +87,31 @@ template<typename T>
 void Linkedlist<T>::insert(T value){
     Node<T> *node = &head;
     while(node.next != nullptr){
-        node = node.next;
+        node = node.getNext();
     }
     Node<T> newNode = Node(value);
-    node.next = newNode;
+    node.setNext(newNode);
+}
+
+//O(n)
+template<typename T>
+bool Linkedlist<T>::remove_by_value(T value){
+    Node<T> *node = &head;
+    Node<T> *prev = &head;
+    while(true){
+        if(node.getValue() == value){
+            if(node == head)
+                head = head.getNext();
+            else
+                prev.setNext(node.getNext());
+            return true;
+        }
+        else if(node.getNext() == nullptr){
+            return false;
+        }
+        else{
+            prev = node;
+            node = node.getNext();
+        }
+    }
 }

@@ -14,6 +14,8 @@ class Node{
             Node(T, Node*);
             T getValue();
             Node getNext();
+            void setNext(Node);
+            void setValue(T);
         };
 
 template <typename T>
