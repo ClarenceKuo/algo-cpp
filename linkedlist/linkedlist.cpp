@@ -5,8 +5,8 @@ using namespace std;
 template <typename T>
 Node<T>::Node()
 {
-    this->value = NULL;
-    this->next = nullptr;
+    this->value = 0;
+    this->next = NULL;
 }
 template <typename T>
 Node<T>::Node(T value)
@@ -39,25 +39,25 @@ void Node<T>::setNext(Node<T> node)
      this->next = &node;
 }
 
-// template< typename T>
-// Linkedlist<T>::Linkedlist(){
-//     head = nullptr;
-// }
+template< typename T>
+Linkedlist<T>::Linkedlist(){
+    this->head = Node<T>();
+}
 
-// template< typename T>
-// Linkedlist<T>::~Linkedlist(){
-//     head = nullptr;
-// }
+template< typename T>
+Linkedlist<T>::Linkedlist(T value){
+    this->head = Node<T>(value);
+}
 
-// template< typename T>
-// Linkedlist<T>::Linkedlist(Node<T> node){
-//     head = node;
-// }
+template<typename T>
+Linkedlist<T>::Linkedlist(Node<T> node){
+    this->head = node;
+}
 
-// template<typename T>
-// void Linkedlist<T>::setHead(Node<T> node){
-//     head = node;
-// }
+template<typename T>
+void Linkedlist<T>::setHead(Node<T> node){
+    this->head = node;
+}
 
 // template<typename T>
 // Node<T> Linkedlist<T>::getHead(){
@@ -111,9 +111,22 @@ void Node<T>::setNext(Node<T> node)
 // }
 
 int main(void){
+    //Node init test
+    //head is used in Linkedlist test
     Node<int> head = Node<int>(10);
+    /*
     Node<int> tail = Node<int>(12);
     head.setNext(tail);
     cout<<head.getNext()->getValue()<<endl;
+    */
+
+    //LinkedList init test
+    Linkedlist<int> lt1 = Linkedlist<int>();
+    Linkedlist<int> lt2 = Linkedlist<int>(10);
+    Linkedlist<int> lt3 = Linkedlist<int>(head);
+
+
+
+
     return 0;
 }
