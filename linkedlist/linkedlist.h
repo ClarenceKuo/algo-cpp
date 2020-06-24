@@ -11,36 +11,35 @@ class Node{
         public:
             Node();
             Node(T);
-            Node(T, Node*);
             T getValue();
-            Node getNext();
-            void setNext(Node);
+            Node<T>* getNext();
+            void setNext(Node<T>);
             void setValue(T);
         };
 
-template <typename T>
-class Linkedlist
-{
-    public:
-        // constructor functions
-        Linkedlist ();
-        ~Linkedlist ();
-        Linkedlist (Node<T>);
+// template <typename T>
+// class Linkedlist
+// {
+//     public:
+//         // constructor functions
+//         Linkedlist ();
+//         ~Linkedlist ();
+//         Linkedlist (Node<T>);
 
-        // setter 
-        void setHead(Node<T>);
+//         // setter 
+//         void setHead(Node<T>);
 
-        // getter
-        Node<T> getHead();
+//         // getter
+//         Node<T> getHead();
 
-        // other functions 
-        int length();
-        void insert(T);
-        bool remove_by_value(T);
-        bool reverse();
-    private:
-        Node head;       
+//         // other functions 
+//         int length();
+//         void insert(T);
+//         bool remove_by_value(T);
+//         bool reverse();
+//     private:
+//         Node head;       
 
 
-};
+// };
 #endif /* LOCALIZER_H */
