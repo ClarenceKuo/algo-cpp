@@ -1,5 +1,6 @@
 #include "linkedlist.h"
 #include <iostream>
+#include <assert.h>
 using namespace std;
 
 template <typename T>
@@ -112,19 +113,18 @@ void Linkedlist<T>::setHead(Node<T> node){
 
 int main(void){
     //Node init test
-    //head is used in Linkedlist test
-    Node<int> head = Node<int>(10);
-    /*
-    Node<int> tail = Node<int>(12);
+    Node<int> head = Node<int>();
+    Node<int> tail = Node<int>();
+
+    //getter, setter test
+    head.setValue(10);
     head.setNext(tail);
-    cout<<head.getNext()->getValue()<<endl;
-    */
+    assert(head.getNext()->getValue() == 0);
 
     //LinkedList init test
     Linkedlist<int> lt1 = Linkedlist<int>();
     Linkedlist<int> lt2 = Linkedlist<int>(10);
     Linkedlist<int> lt3 = Linkedlist<int>(head);
-
 
 
 
