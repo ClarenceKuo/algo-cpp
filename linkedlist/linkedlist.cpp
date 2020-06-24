@@ -60,10 +60,10 @@ void Linkedlist<T>::setHead(Node<T> node){
     this->head = node;
 }
 
-// template<typename T>
-// Node<T> Linkedlist<T>::getHead(){
-//     return head;
-// }
+template<typename T>
+Node<T> Linkedlist<T>::getHead(){
+    return this->head;
+}
 
 // //O(n)
 // template<typename T>
@@ -116,7 +116,7 @@ int main(void){
     Node<int> head = Node<int>();
     Node<int> tail = Node<int>();
 
-    //getter, setter test
+    //Node getter, setter test
     head.setValue(10);
     head.setNext(tail);
     assert(head.getNext()->getValue() == 0);
@@ -126,6 +126,9 @@ int main(void){
     Linkedlist<int> lt2 = Linkedlist<int>(10);
     Linkedlist<int> lt3 = Linkedlist<int>(head);
 
+    //LinkedList getter, setter test
+    lt1.setHead(tail);
+    assert(lt1.getHead().getValue() == 0);
 
 
     return 0;
