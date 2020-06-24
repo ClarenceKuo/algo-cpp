@@ -36,7 +36,7 @@ Node<T>* Node<T>::getNext()
 template <typename T>
 void Node<T>::setNext(Node<T> node)
 {
-     this->next = node;
+     this->next = &node;
 }
 
 // template< typename T>
@@ -112,6 +112,8 @@ void Node<T>::setNext(Node<T> node)
 
 int main(void){
     Node<int> head = Node<int>(10);
+    Node<int> tail = Node<int>(12);
+    head.setNext(tail);
     cout<<head.getNext()->getValue()<<endl;
     return 0;
 }
