@@ -65,17 +65,24 @@ Node<T> Linkedlist<T>::getHead(){
     return this->head;
 }
 
-// //O(n)
-// template<typename T>
-// int Linkedlist<T>::length(){
-//     Node<T> *node = &head;
-//     int cnt = 0;
-//     while(node.getNext() != nullptr){
-//         cnt++;
-//         node = node.getNext();
-//     }
-//     return cnt;
-// }
+//O(n)
+template<typename T>
+int Linkedlist<T>::length()
+{
+    int cnt = 0;
+    Node<T> *node = new Node<T>;
+    node = &(this->head);
+    do{
+        if(node){
+            cnt++;
+        }
+        if(node->getNext()){
+            node = node->getNext();
+        }
+    }
+    while(node->getNext() != nullptr);
+    return cnt;
+}
 
 // //O(n)
 // template<typename T>
@@ -129,6 +136,9 @@ int main(void){
     //LinkedList getter, setter test
     lt1.setHead(tail);
     assert(lt1.getHead().getValue() == 0);
+
+    //function test
+    assert(lt1.length() == 1);
 
 
     return 0;
