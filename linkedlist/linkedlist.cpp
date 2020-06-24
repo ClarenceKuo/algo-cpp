@@ -70,30 +70,30 @@ template<typename T>
 int Linkedlist<T>::length()
 {
     int cnt = 0;
-    Node<T> *node = new Node<T>;
-    node = &(this->head);
-    do{
-        if(node){
-            cnt++;
-        }
-        if(node->getNext()){
-            node = node->getNext();
-        }
+    Node<T> *node = &(this->head);
+    if(node != NULL) cnt++;
+    while(node->getNext() != NULL){
+        cnt++;
+        node = node->getNext();
     }
-    while(node->getNext() != nullptr);
     return cnt;
 }
 
-// //O(n)
-// template<typename T>
-// void Linkedlist<T>::insert(T value){
-//     Node<T> *node = &head;
-//     while(node.next != nullptr){
-//         node = node.getNext();
-//     }
-//     Node<T> newNode = Node(value);
-//     node.setNext(newNode);
-// }
+//O(n)
+template<typename T>
+void Linkedlist<T>::insert(T value){
+    Node<T> *node = &(this->head);
+    Node<T> newNode = Node<T>(value);
+    if(node == NULL){
+        node->setNext(newNode);
+        return;
+    }
+    while(node->getNext() != NULL){
+        std::cout<< node->getValue()<<std::endl;
+        node = node->getNext();
+    }
+    node->setNext(newNode);
+}
 
 // //O(n)
 // template<typename T>
@@ -139,6 +139,8 @@ int main(void){
 
     //function test
     assert(lt1.length() == 1);
+    lt1.insert(2);
+    assert(lt1.length() == 2);
 
 
     return 0;
